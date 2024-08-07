@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[9818],{6194:s=>{s.exports=JSON.parse('{"tag":{"label":"grpc","permalink":"/docs/tags/grpc","allTagsPath":"/docs/tags","count":1,"items":[{"id":"Go/modules/go-grpc","title":"Go grpc","description":"Go Web \u6846\u67b6 grpc","permalink":"/docs/Go/modules/Go grpc"}],"unlisted":false}}')}}]);
