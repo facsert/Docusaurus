@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[5340],{6149:s=>{s.exports=JSON.parse('{"tag":{"label":"zsh","permalink":"/docs/tags/zsh","allTagsPath":"/docs/tags","count":1,"items":[{"id":"Tool/zsh","title":"zsh","description":"zsh \u662f\u4e00\u4e2a\u9ad8\u6548\u7f8e\u89c2\u7684 shell","permalink":"/docs/Tool/zsh"}],"unlisted":false}}')}}]);

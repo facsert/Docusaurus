@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[5755],{2486:a=>{a.exports=JSON.parse('{"tag":{"label":"rabbitmq","permalink":"/docs/tags/rabbitmq","allTagsPath":"/docs/tags","count":1,"items":[{"id":"Tool/rabbitmq","title":"rabbitmq","description":"\u6d88\u606f\u961f\u5217\u5de5\u5177 rabbitmq","permalink":"/docs/Tool/rabbitmq"}],"unlisted":false}}')}}]);

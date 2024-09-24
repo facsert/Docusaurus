@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[2696],{1433:s=>{s.exports=JSON.parse('{"tag":{"label":"Ansible","permalink":"/docs/tags/ansible","allTagsPath":"/docs/tags","count":1,"items":[{"id":"Tool/ansible","title":"Ansible","description":"\u81ea\u52a8\u5316\u8fd0\u7ef4\u5de5\u5177 Ansible","permalink":"/docs/Tool/Ansible"}],"unlisted":false}}')}}]);

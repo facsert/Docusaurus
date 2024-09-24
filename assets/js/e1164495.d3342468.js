@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[998],{8829:n=>{n.exports=JSON.parse('{"tag":{"label":"nginx","permalink":"/docs/tags/nginx","allTagsPath":"/docs/tags","count":1,"items":[{"id":"Tool/nginx","title":"nginx","description":"nginx","permalink":"/docs/Tool/nginx"}],"unlisted":false}}')}}]);
