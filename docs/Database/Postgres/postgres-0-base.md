@@ -34,7 +34,8 @@ description: "Postgresql 配置"
  $ docker run \
      -p 5432:5432 \
      --name postgres \
-     -e POSTGRES_PASSWORD=password \
+     --restart always \
+     -e POSTGRES_PASSWORD=root \
      -e TZ=Asia/Shanghai \
      -v /root/Desktop/Postgres:/var/lib/postgresql/data \
      -d postgres
@@ -56,6 +57,36 @@ description: "Postgresql 配置"
  template1 | postgres | UTF8     | libc            | en_US.utf8 | en_US.utf8 |            |           | =c/postgres          +
            |          |          |                 |            |            |            |           | postgres=CTc/postgres
 (3 rows)
+```
+
+```yml
+# 使用 docker-compose.yml 拉起
+services:
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - /root/postgres:/var/lib/postgresql/data
+    environment:
+      TZ: Asia/Shanghai
+      POSTGRES_PASSWORD: root
+```
+
+## 备份
+
+```bash
+ # 进入 postgres 容器
+ $ docker exec -it postgres bash
+
+ # pg_dump 备份数据
+ $ pg_dump -U <username> -d <databas name> -f <sql file path>
+ $ pg_dump -U <username> -d <databas name> -t <table name> -f <sql file path>
+ 
+ $ pg_dump -U postgres -d postgres -t node -f /root/backup_node.sql
 ```
 
 PostgreSQL 命令行在处理 SQL 语句时, 不区分大小写, 结尾以分号(;)结尾  
