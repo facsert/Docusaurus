@@ -1,5 +1,4 @@
 ---
-author: facsert
 pubDatetime: 2024-04-29 22:39:27
 title: React hook
 slug: React hook
@@ -23,6 +22,7 @@ description: "React hooks"
 - 只能使用 setStatus 改变 status 的值
 - status 变更后会触发组件重新渲染
 - status 和 setStatus 可以传递给其他组件达到跨组件通信
+- set 函数是异步执行, 不会阻塞组件渲染, 但可能会延迟状态更新
 
 ```ts
 import { useState } from "react";
@@ -31,6 +31,10 @@ import { useState } from "react";
 export default function Counter() {
   const [count, setCount] = useState(0);
   return <button onClick={() => setCount(count + 1)}></button>;
+
+  // set 函数可以添加参数获取上一次状态
+  // const [count, setCount] = useState(0);
+  // return <button onClick={() => setCount(pre => pre + 1)}></button>;
 }
 
 // 开关
@@ -47,34 +51,34 @@ export default function Switch() {
 ```ts
 // Home Page
 function HomePage() {
-    const [dark, setDark] = useState<boolean>(true);
-    return (
-        ...
-        <Menu dark={dark} setDark={setDark} />
-        <SideBar dark={dark} />
-        ...
-    )
+  const [dark, setDark] = useState<boolean>(true);
+  return (
+    ...
+    <Menu dark={dark} setDark={setDark} />
+    <SideBar dark={dark} />
+    ...
+  )
 }
 
 // Menu Component
 function Menu({ dark, setDark }: { dark: boolean, setDark: (dark: boolean) => void }) {
-    return (
-        <>
-            ...
-            // 切换主题
-            <button onClick={() => setDark(!dark)}>{dark? "Dark": "Light"}</button>
-            ...
-        </>
-        )
+  return (
+    <>
+      ...
+      // 切换主题
+      <button onClick={() => setDark(!dark)}>{dark? "Dark": "Light"}</button>
+      ...
+    </>
+  )
 }
 
 // SideBar Component
 function SideBar({ dark }: { dark: boolean }) {
     return (
-        // Menu 设置 dark 属性, 触发 SideBar 组件重新渲染
-        <div className={dark ? 'dark' : 'light'}>
-        ...
-        </div>
+      // Menu 设置 dark 属性, 触发 SideBar 组件重新渲染
+      <div className={dark ? 'dark' : 'light'}>
+      ...
+      </div>
     )
 }
 ```
@@ -90,14 +94,14 @@ function SideBar({ dark }: { dark: boolean }) {
 ```ts
 import { useEffect } from 'react';
 export default function Counter() {
-    useEffect(() => {
-        console.log('组件渲染后执行');
-        return () => {
-            console.log('组件销毁时执行');
-        }
-        // 依赖项发生变化时执行
+  useEffect(() => {
+    console.log('组件渲染后执行');
+    return () => {
+        console.log('组件销毁时执行');
+    }
+    // 依赖项发生变化时执行
 
-    }, [])
-    ...
+  }, [])
+  ...
 }
 ```

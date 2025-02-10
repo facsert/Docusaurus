@@ -1,5 +1,4 @@
 ---
-author: facsert
 pubDatetime: 2023-12-13 21:51:08
 title: Python APScheduler
 slug: Python APScheduler
@@ -10,14 +9,6 @@ tags:
   - APScheduler
 description: "Python 定时任务框架 APScheduler"
 ---
-
-<!--
- * @Author: facsert
- * @Date: 2023-12-13 21:51:08
- * @LastEditTime: 2023-12-13 22:10:40
- * @LastEditors: facsert
- * @Description:
--->
 
 ## Table of Contents
 
@@ -61,7 +52,7 @@ def func(name='John'):
 
 schedule = BackgroundScheduler()                 # 选择一种调度器
 schedule.add_job(func, 'interval', seconds=5)    # 每 5s 执行一次
-scheculer.add_job(func, 'cron', minute='*/5')    # 每 5 分钟执行一次
+scheduler.add_job(func, 'cron', minute='*/5')    # 每 5 分钟执行一次
 
 
 date = '2024-01-04 12:00:00'                     # 固定时间执行一次

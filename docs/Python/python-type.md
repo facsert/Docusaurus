@@ -1,5 +1,4 @@
 ---
-author: facsert
 pubDatetime: 2023-09-25 15:28:43
 title: Python Type
 slug: Python Type
@@ -9,13 +8,6 @@ tags:
   - Python
 description: "Python 类型注解"
 ---
-
-<!--
- * @Author       : facsert
- * @Date         : 2023-09-25 15:28:43
- * @LastEditTime : 2023-07-28 11:50:12
- * @Description  : edit description
--->
 
 ## Table of Contents
 
@@ -37,7 +29,7 @@ description: "Python 类型注解"
 静态语言变量有类型, 且变量类型和值的类型必须一致
 
 ```go
- var name string = "facser"                      // Go 是静态语言
+ var name string = "john"                        // Go 是静态语言
  var age int = 18                                // 变量声明需要确定变量类型
  age = 20                                        // 变量重新赋值时, 变量和值的类型必须一致
 ```
@@ -77,12 +69,13 @@ python 类型注解:
 ```
 
 注: 上述除元组与字典外, 容器元素只能指定一个类型. 元组需要数量和类型一致, 字典只能使用一组 key value 类型
-(python3.9版本前容器类型需要导入 typing 模块的 List Tuple Set Dict)
+(python3.9 版本前容器类型需要导入 typing 模块的 List Tuple Set Dict)
 
 ### 联合类型
 
 - Union
 - Optional
+- Literal
 
 ```python
  from typing import Union
@@ -94,12 +87,17 @@ python 类型注解:
 ```
 
 ```python
- option_str: Optional[str] = 'a'                     # 可选类型, 值可为字符串或者 None
- option_int: Optional[int] = None                    # 可选类型, 值可为整形或者 None
+ option_str: Optional[str] = 'a'                 # 可选类型, 值可为字符串或者 None
+ option_int: Optional[int] = None                # 可选类型, 值可为整形或者 None
 
- Optional[int] = Union[int, None]                    # Optional 自带 None, 只能再添加一种类型
+ Optional[int] = Union[int, None]                # Optional 自带 None, 只能再添加一种类型
 
- optional_int: int | None = 3                        # python3.10 的新写法
+ optional_int: int | None = 3                    # python3.10 的新写法
+```
+
+```py
+value_type: Literal["min", "max"] = "min"        # 定义值类型, 值应为  Literal[] 列表中任意一个
+value_type: Literal["big", "small"] = "big"
 ```
 
 ### 抽象类型
@@ -117,7 +115,7 @@ python 类型注解:
  def func(name: str, age: int) -> dict:          # 参数添加类型, 返回值添加类型
      return {'name': name, 'age': age}
 
-  def func(name: str, age: int=18) -> str, int:  # 返回多个值
+  def func(name: str, age: int=18) -> tuple[str, int]:  # 返回多个值
       return name, age
 ```
 
